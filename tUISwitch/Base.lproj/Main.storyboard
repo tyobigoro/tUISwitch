@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,71 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tUISwitch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEF-hj-NOR">
+                                <rect key="frame" x="174.5" y="782" width="65" height="30"/>
+                                <state key="normal" title="transition"/>
+                                <connections>
+                                    <action selector="transitionBtnDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oOa-Ux-jXZ"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psd-Qr-Wmo">
+                                <rect key="frame" x="182.5" y="432.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="bLP-nf-yOy"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zEF-hj-NOR" secondAttribute="bottom" constant="50" id="10J-EE-Nxu"/>
+                            <constraint firstItem="psd-Qr-Wmo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ftl-SQ-y9Y"/>
+                            <constraint firstItem="zEF-hj-NOR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="npe-4R-8dg"/>
+                            <constraint firstItem="psd-Qr-Wmo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tmO-qp-cgE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tSwitch" destination="psd-Qr-Wmo" id="nF3-nY-eWd"/>
+                        <segue destination="vP0-X7-swS" kind="presentation" identifier="Goto2ndVC" id="Gha-Lx-3IY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+        <!--SeondVC-->
+        <scene sceneID="0Yf-ZJ-dHt">
+            <objects>
+                <viewController id="vP0-X7-swS" customClass="SeondVC" customModule="tUISwitch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ftd-4l-6jk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTA-g3-dUi">
+                                <rect key="frame" x="173" y="752" width="68" height="30"/>
+                                <state key="normal" title="backToVC"/>
+                                <connections>
+                                    <action selector="pushReturnBtn:" destination="vP0-X7-swS" eventType="touchUpInside" id="cfX-bI-i3d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XTA-g3-dUi" firstAttribute="centerX" secondItem="ftd-4l-6jk" secondAttribute="centerX" id="jTR-aS-u5w"/>
+                            <constraint firstItem="XTA-g3-dUi" firstAttribute="top" secondItem="BOF-lO-vt0" secondAttribute="top" constant="752" id="uRX-FE-BJJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BOF-lO-vt0"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gDO-JM-VUw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isT-xk-tIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896" y="138"/>
         </scene>
     </scenes>
 </document>
